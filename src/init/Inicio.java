@@ -104,30 +104,30 @@ public class Inicio extends JFrame {
 				boolean set = data.data();
 				if(set==true) {
 					
-					lblEURUSD.setText("EURUSD - Short: " + String.valueOf(data.getEURUSD()) 
-					+ "% Long: " + String.valueOf(100-data.getEURUSD())+"%" );
-					lblGBPUSD.setText("GBPUSD - Short: " + String.valueOf(data.getGBPUSD()) 
-					+ "% Long: " + String.valueOf(100-data.getGBPUSD())+"%" );
-					lblAUDUSD.setText("AUDUSD - Short: " + String.valueOf(data.getAUDUSD()) 
-					+ "% Long: " + String.valueOf(100-data.getAUDUSD())+"%" );
-					lblNZDUSD.setText("NZDUSD - Short: " + String.valueOf(data.getNZDUSD()) 
-					+ "% Long: " + String.valueOf(100-data.getNZDUSD())+"%" );
-					lblUSDJPY.setText("USDJPY - Short: " + String.valueOf(data.getUSDJPY()) 
-					+ "% Long: " + String.valueOf(100-data.getUSDJPY())+"%" );
-					lblDAX.setText("DAX30 - Short: " + String.valueOf(data.getDAX()) 
-					+ "% Long: " + String.valueOf(100-data.getDAX())+"%" );
-					lblSP.setText("SP500 - Short: " + String.valueOf(data.getSP()) 
-					+ "% Long: " + String.valueOf(100-data.getSP())+"%" );
-					lblOIL.setText("CRUDE OIL - Short: " + String.valueOf(data.getOIL()) 
-					+ "% Long: " + String.valueOf(100-data.getOIL())+"%" );
-					lblGOLD.setText("GOLD - Short: " + String.valueOf(data.getGOLD()) 
-					+ "% Long: " + String.valueOf(100-data.getGOLD())+"%" );
-					lblUSDCAD.setText("USDCAD - Short: " + String.valueOf(data.getUSDCAD()) 
-					+ "% Long: " + String.valueOf(100-data.getUSDCAD())+"%" );
+					lblEURUSD.setText("EURUSD - Long: " + String.valueOf(data.getEURUSD()) 
+					+ "% Short: " + String.valueOf(100-data.getEURUSD())+"%" );
+					lblGBPUSD.setText("GBPUSD - Long: " + String.valueOf(data.getGBPUSD()) 
+					+ "% Short: " + String.valueOf(100-data.getGBPUSD())+"%" );
+					lblAUDUSD.setText("AUDUSD - Long: " + String.valueOf(data.getAUDUSD()) 
+					+ "% Short: " + String.valueOf(100-data.getAUDUSD())+"%" );
+					lblNZDUSD.setText("NZDUSD - Long: " + String.valueOf(data.getNZDUSD()) 
+					+ "% Short: " + String.valueOf(100-data.getNZDUSD())+"%" );
+					lblUSDJPY.setText("USDJPY - Long: " + String.valueOf(data.getUSDJPY()) 
+					+ "% Short: " + String.valueOf(100-data.getUSDJPY())+"%" );
+					lblDAX.setText("DAX30 - Long: " + String.valueOf(data.getDAX()) 
+					+ "% Short: " + String.valueOf(100-data.getDAX())+"%" );
+					lblSP.setText("SP500 - Long: " + String.valueOf(data.getSP()) 
+					+ "% Short: " + String.valueOf(100-data.getSP())+"%" );
+					lblOIL.setText("CRUDE OIL - Long: " + String.valueOf(data.getOIL()) 
+					+ "% Short: " + String.valueOf(100-data.getOIL())+"%" );
+					lblGOLD.setText("GOLD - Long: " + String.valueOf(data.getGOLD()) 
+					+ "% Short: " + String.valueOf(100-data.getGOLD())+"%" );
+					lblUSDCAD.setText("USDCAD - Long: " + String.valueOf(data.getUSDCAD()) 
+					+ "% Short: " + String.valueOf(100-data.getUSDCAD())+"%" );
 					int USDShort = (data.getEURUSD() + data.getAUDUSD() + data.getGBPUSD() + data.getNZDUSD()
 					+ (100-data.getUSDJPY()) + (100-data.getUSDCAD()))/6;
-					lblUSD.setText("US Dollar - Short: " + String.valueOf(USDShort) 
-					+ "% Long: " + String.valueOf(100-USDShort)+"%" );
+					lblUSD.setText("US Dollar - Long: " + String.valueOf(USDShort) 
+					+ "% Short: " + String.valueOf(100-USDShort)+"%" );
 					
 				}
 			}
