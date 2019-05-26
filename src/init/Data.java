@@ -7,7 +7,7 @@ import java.net.URL;
 public class Data {
 
 
-	public int EURUSD, GBPUSD, NZDUSD, AUDUSD, USDJPY, DAX, SP, OIL, GOLD, USDCAD;
+	public int EURUSD, GBPUSD, NZDUSD, AUDUSD, USDJPY, DAX, SP, OIL, GOLD, USDCAD, EURGBP, EURCHF, EURAUD;
 	
 	public boolean data() {
 		
@@ -25,6 +25,9 @@ public class Data {
 		  SP = scrape("US500");
 		  OIL = scrape("XTIUSD");
 		  GOLD = scrape("XAUUSD");
+		  EURGBP = scrape("EURGBP");
+		  EURCHF = scrape("EURCHF");
+		  EURAUD = scrape("EURAUD");
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -33,6 +36,15 @@ public class Data {
 		}
 		
 		return result;
+	}
+	public int getEURGBP() {
+		return EURGBP;
+	}
+	public int getEURCHF() {
+		return EURCHF;
+	}
+	public int getEURAUD() {
+		return EURAUD;
 	}
 	public int scrape(String activo) {
 		int resultado = 0;

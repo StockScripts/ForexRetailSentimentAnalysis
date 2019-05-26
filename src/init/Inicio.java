@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.Color;
+import javax.swing.JSeparator;
 
 public class Inicio extends JFrame {
 
@@ -93,9 +94,13 @@ public class Inicio extends JFrame {
 		contentPane.add(lblForexSentiment);
 		
 		JLabel lblUSD = new JLabel("US Dollar:  ");
-		lblUSD.setBounds(30, 450, 309, 14);
+		lblUSD.setBounds(30, 450, 206, 14);
 		contentPane.add(lblUSD);
 		
+		JLabel lblEuro = new JLabel("Euro:");
+		lblEuro.setBounds(260, 450, 214, 14);
+		contentPane.add(lblEuro);
+				
 		JButton btnLoadRefresh = new JButton("Load - Refresh");
 		btnLoadRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -128,7 +133,9 @@ public class Inicio extends JFrame {
 					+ (100-data.getUSDJPY()) + (100-data.getUSDCAD()))/6;
 					lblUSD.setText("US Dollar - Long: " + String.valueOf(USDShort) 
 					+ "% Short: " + String.valueOf(100-USDShort)+"%" );
-					
+					int EURShort = ( data.getEURUSD() + data.getEURAUD() + data.getEURCHF() + data.getEURGBP() ) / 4;
+					lblEuro.setText("Euro - Long: " + String.valueOf(EURShort) 
+					+ "% Short: " + String.valueOf(100-EURShort)+"%" );
 				}
 			}
 		});
@@ -160,7 +167,7 @@ public class Inicio extends JFrame {
 		lblOnceYouClick.setBounds(20, 500, 454, 14);
 		contentPane.add(lblOnceYouClick);
 		
-		JLabel lblAllDataIs = new JLabel("All data is scraped from Myfxbook's Web and is provided \"as is\" for educational purposes");
+		JLabel lblAllDataIs = new JLabel("All data is scraped from Myfxbook's Web and provided \"as is\" for educational purposes");
 		lblAllDataIs.setBounds(20, 525, 525, 14);
 		contentPane.add(lblAllDataIs);
 		
@@ -169,6 +176,15 @@ public class Inicio extends JFrame {
 		lblDevelopedBySagaquant.setBounds(20, 550, 380, 14);
 		contentPane.add(lblDevelopedBySagaquant);
 		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 69, 564, 2);
+		contentPane.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 477, 564, 2);
+		contentPane.add(separator_1);
+		
+
 
 		
 
