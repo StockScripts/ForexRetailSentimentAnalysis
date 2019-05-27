@@ -94,13 +94,30 @@ public class Inicio extends JFrame {
 		contentPane.add(lblForexSentiment);
 		
 		JLabel lblUSD = new JLabel("US Dollar:  ");
-		lblUSD.setBounds(30, 450, 206, 14);
+		lblUSD.setBounds(268, 110, 206, 14);
 		contentPane.add(lblUSD);
 		
 		JLabel lblEuro = new JLabel("Euro:");
-		lblEuro.setBounds(260, 450, 214, 14);
+		lblEuro.setBounds(268, 140, 214, 14);
 		contentPane.add(lblEuro);
-				
+		
+		JLabel lblOilIndex = new JLabel("OIL Index:");
+		lblOilIndex.setBounds(268, 170, 267, 14);
+		contentPane.add(lblOilIndex);
+		
+		JLabel lblCommodities = new JLabel("Commodities:");
+		lblCommodities.setBounds(268, 200, 289, 14);
+		contentPane.add(lblCommodities);
+		
+		JLabel lblStockMarketIndexes = new JLabel("Stock Market Indexes:");
+		lblStockMarketIndexes.setBounds(268, 230, 306, 14);
+		contentPane.add(lblStockMarketIndexes);
+		
+		JLabel lblGreedFear = new JLabel("GREED - FEAR RATIO:");
+		lblGreedFear.setBounds(268, 260, 306, 14);
+		contentPane.add(lblGreedFear);
+
+
 		JButton btnLoadRefresh = new JButton("Load - Refresh");
 		btnLoadRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -136,6 +153,26 @@ public class Inicio extends JFrame {
 					int EURShort = ( data.getEURUSD() + data.getEURAUD() + data.getEURCHF() + data.getEURGBP() ) / 4;
 					lblEuro.setText("Euro - Long: " + String.valueOf(EURShort) 
 					+ "% Short: " + String.valueOf(100-EURShort)+"%" );
+					int OILIn = (data.getBRENT() + data.getOIL())/2;
+					lblOilIndex.setText("OIL INDEX - Long: " + String.valueOf(OILIn) + "% - Short: " 
+					+ String.valueOf(100-OILIn) + "%");
+					int COMIn = (data.getBRENT() + data.getOIL() + data.getGOLD() + data.getXAGUSD())/4;
+					lblCommodities.setText("Commodities - Long: " + String.valueOf(COMIn) + "% - Short: " 
+					+ String.valueOf(100-COMIn) + "%");
+					int STIn = (data.getAUS200() + data.getDAX() + data.getFRA40() + data.getNAS100()
+					+ data.getUS2000() + data.getUS30())/6;
+					lblStockMarketIndexes.setText("Stock Market Indexes - Long: " + String.valueOf(STIn) + "% - Short: " 
+					+ String.valueOf(100-STIn) + "%");
+					double gfratio = (data.getUSDJPY()*0.1 + (100-data.getGOLD())*0.1 + STIn*0.7
+							+ (100-OILIn)*0.1);
+					if(gfratio>=55) {
+						lblGreedFear.setText("GREED - FEAR RATIO: " + Math.round(gfratio) + " (GREED)");
+					} else if(gfratio<=45) {
+						lblGreedFear.setText("GREED - FEAR RATIO: " + Math.round(gfratio) + " (FEAR)");
+					}else {
+						lblGreedFear.setText("GREED - FEAR RATIO: " + Math.round(gfratio) + " (NEUTRAL)");
+					}
+					
 				}
 			}
 		});
@@ -158,17 +195,17 @@ public class Inicio extends JFrame {
 		lblFxPairs.setBounds(20, 82, 89, 14);
 		contentPane.add(lblFxPairs);
 		
-		JLabel lblCurrency = new JLabel("Currencies:");
+		JLabel lblCurrency = new JLabel("Composite Indexes:");
 		lblCurrency.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCurrency.setBounds(20, 420, 122, 14);
+		lblCurrency.setBounds(260, 82, 140, 14);
 		contentPane.add(lblCurrency);
 		
 		JLabel lblOnceYouClick = new JLabel("Once you click on \"Load - Refresh\" wait a few seconds until data appears");
-		lblOnceYouClick.setBounds(20, 500, 454, 14);
+		lblOnceYouClick.setBounds(20, 465, 454, 14);
 		contentPane.add(lblOnceYouClick);
 		
-		JLabel lblAllDataIs = new JLabel("All data is scraped from Myfxbook's Web and provided \"as is\" for educational purposes");
-		lblAllDataIs.setBounds(20, 525, 525, 14);
+		JLabel lblAllDataIs = new JLabel("All data is scraped from Myfxbook's Web and provided for educational purposes");
+		lblAllDataIs.setBounds(20, 490, 525, 14);
 		contentPane.add(lblAllDataIs);
 		
 		JLabel lblDevelopedBySagaquant = new JLabel("Developed by SAGAQUANT - 2019 - sagaquant.com");
@@ -181,8 +218,10 @@ public class Inicio extends JFrame {
 		contentPane.add(separator);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(10, 477, 564, 2);
+		separator_1.setBounds(10, 445, 564, 2);
 		contentPane.add(separator_1);
+		
+		
 		
 
 
